@@ -302,6 +302,24 @@ asyncio.run(main())
 
 However the real magic of the Realtime API is handling audio inputs / outputs, see this example [TUI script](https://github.com/openai/openai-python/blob/main/examples/realtime/push_to_talk_app.py) for a fully fledged example.
 
+```
+# TUIdemo
+
+# 安装依赖
+pip install textual numpy pyaudio pydub sounddevice openai
+# 安装uv
+pip install uv
+
+# 设置密钥
+export OPENAI_API_KEY="your_openai_api_key"
+
+# uv启动
+uv run push_to_talk_app.py
+
+```
+
+
+
 ### Realtime error handling
 
 Whenever an error occurs, the Realtime API will send an [`error` event](https://platform.openai.com/docs/guides/realtime/realtime-api-beta#handling-errors) and the connection will stay open and remain usable. This means you need to handle it yourself, as *no errors are raised directly* by the SDK when an `error` event comes in.
